@@ -5,21 +5,24 @@ services:
   postgres:
     image: postgres
     restart: always
-    ports: 
+    ports:
       - "5432:5432"
     environment:
-     - DATABASE_HOST=127.0.0.1
      - POSTGRES_USER=root
      - POSTGRES_PASSWORD=root
      - POSTGRES_DB=root
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
     environment:
-     PGADMIN_DEFAULT_EMAIL: "w@admin.com"
-     PGADMIN_DEFAULT_PASSWORD: "admin"
-    
+     - PGADMIN_DEFAULT_EMAIL=w@admin.com
+     - PGADMIN_DEFAULT_PASSWORD=admin
     ports:
       - "80:80"
     depends_on:
-      - postgres  
+      - postgres
+
+volumes:
+  postgres_data:
