@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 
 function CreateServicio({ onServicioCreated }) {
-  const [id, setId] = useState('');
   const [nombre, setNombre] = useState('');
   const [descripcion, setDescripcion] = useState('');
 
-  // Función para manejar el envío del formulario
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleCreateServicio = async () => {
     const nuevoServicio = {
-      id,
       nombre,
       descripcion,
     };
@@ -26,12 +21,13 @@ function CreateServicio({ onServicioCreated }) {
 
       if (response.ok) {
         // Limpiar los campos después de una creación exitosa
-        setId('');
         setNombre('');
         setDescripcion('');
 
         // Llama a la función onServicioCreated para notificar que se ha creado un nuevo servicio
         onServicioCreated();
+
+        console.log('Servicio creado con éxito');
       } else {
         console.error('Error al crear el servicio.');
       }
@@ -43,21 +39,15 @@ function CreateServicio({ onServicioCreated }) {
   return (
     <div>
       <h2>Crear un nuevo Servicio</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>ID:</label>
-          <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-        </div>
-        <div>
-          <label>Nombre:</label>
-          <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
-        </div>
-        <div>
-          <label>Descripción:</label>
-          <input type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
-        </div>
-        <button type="submit">Crear Servicio</button>
-      </form>
+      <div>
+        <label>Nombre:</label>
+        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} />
+      </div>
+      <div>
+        <label>Descripción:</label>
+        <input type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+      </div>
+      <button onClick={handleCreateServicio}>Crear Servicio</button>
     </div>
   );
 }

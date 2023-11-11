@@ -24,10 +24,11 @@ function ServiciosList() {
       const response = await fetch(`http://localhost:3000/servicios/${id}`, {
         method: 'DELETE',
       });
-
+  
       if (response.ok) {
         // Elimina el servicio de la lista después de la eliminación exitosa
-        setServicios(servicios.filter(servicio => servicio.id !== id));
+        setServicios(servicios.filter((servicio) => servicio.id !== id));
+        loadServicios(); // Carga la lista actualizada después de la eliminación
       } else {
         console.error('Error al eliminar el servicio.');
       }
@@ -42,13 +43,21 @@ function ServiciosList() {
 
   const handleUpdate = (id, nuevoNombre, nuevaDescripcion) => {
     // Actualiza el estado de los servicios con los nuevos datos
-    setServicios(servicios.map(servicio => {
+    setServicios(servicios.map((servicio) => {
       if (servicio.id === id) {
         return { ...servicio, nombre: nuevoNombre, descripcion: nuevaDescripcion };
       }
       return servicio;
     }));
     setServicioAEditar(null);
+    loadServicios(); // Carga la lista actualizada después de la edición
+  };
+
+  const loadServicios = () => {
+    fetch('http://localhost:3000/servicios')
+      .then((response) => response.json())
+      .then((data) => setServicios(data))
+      .catch((error) => console.error('Error:', error));
   };
   
 
