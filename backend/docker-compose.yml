@@ -12,7 +12,9 @@ services:
      - POSTGRES_PASSWORD=root
      - POSTGRES_DB=root
     volumes:
+      - ./src/app/data:/var/lib/postgresql/data
       - postgres_data:/var/lib/postgresql/data
+
 
   pgadmin:
     image: dpage/pgadmin4
@@ -21,6 +23,15 @@ services:
      - PGADMIN_DEFAULT_PASSWORD=admin
     ports:
       - "80:80"
+    depends_on:
+      - postgres
+
+  node-app:
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile  # Nombre del Dockerfile de la aplicación Node.js
+    ports:
+      - "3000:3000"
     depends_on:
       - postgres
 

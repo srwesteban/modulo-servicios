@@ -11,7 +11,7 @@ const cors = require('cors');
 
 // Configura CORS para permitir solicitudes desde el origen de tu aplicación React
 app.use(cors({
-  origin: 'http://localhost:3001', // Reemplaza con el origen de tu aplicación React
+  origin: 'http://localhost:4000', // Reemplaza con el origen de tu aplicación React
   methods: 'GET, POST, PUT, DELETE',
   allowedHeaders: 'Content-Type',
 }));

@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expone el puerto 3000 (el puerto en el que probablemente se ejecute tu aplicación React)
-EXPOSE 3001
+EXPOSE 4000
 
 # Comando para ejecutar la aplicación
 CMD ["npm", "start"]

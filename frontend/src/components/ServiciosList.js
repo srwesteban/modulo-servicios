@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaTrash } from 'react-icons/fa'; // Asegúrate de que react-icons/fa esté importado
-
+import { FaTrash } from 'react-icons/fa';
 import UpdateServicio from './UpdateServicio';
+import '../style.css';
 
 function ServiciosList() {
   const [servicios, setServicios] = useState([]);
@@ -59,14 +59,15 @@ function ServiciosList() {
       .then((data) => setServicios(data))
       .catch((error) => console.error('Error:', error));
   };
-  
 
   return (
-    <div>
+    <div className="servicios-list-container">
       <h1>Lista de Servicios</h1>
-      <button onClick={() => setMostrarLista(!mostrarLista)}>Mostrar Lista de Servicios</button>
+      <button className="toggle-list-button" onClick={() => setMostrarLista(!mostrarLista)}>
+        {mostrarLista ? 'Ocultar Lista de Servicios' : 'Mostrar Lista de Servicios'}
+      </button>
       {mostrarLista && (
-        <table>
+        <table className="servicios-table">
           <thead>
             <tr>
               <th>ID</th>
@@ -83,12 +84,12 @@ function ServiciosList() {
                 <td>{servicio.nombre}</td>
                 <td>{servicio.descripcion}</td>
                 <td>
-                  <button onClick={() => handleEdit(servicio)}>
+                  <button className="edit-button" onClick={() => handleEdit(servicio)}>
                     Editar
                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(servicio.id)}>
+                  <button className="delete-button" onClick={() => handleDelete(servicio.id)}>
                     <FaTrash />
                   </button>
                 </td>
