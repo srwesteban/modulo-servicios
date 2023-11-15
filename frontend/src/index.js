@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom';
 
-import './style.css'; // Importa el archivo de estilos global
+import './style.css'; 
 
 import App from './App';
 
