@@ -6,7 +6,7 @@ function UpdateServicio({ servicio, onUpdateServicio }) {
 
   const handleUpdate = async () => {
     const servicioActualizado = {
-      id: servicio.id, // Utiliza el ID del servicio directamente
+      id: servicio.id, 
       nombre: nuevoNombre,
       descripcion: nuevaDescripcion,
     };
