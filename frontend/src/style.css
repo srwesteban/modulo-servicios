@@ -1,12 +1,8 @@
-/* styles.css */
-
-/* Estilos globales para el cuerpo del documento */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
 }
 
-/* Estilos para enlaces globales */
 a {
   color: #0074d9;
   text-decoration: none;
@@ -15,15 +11,10 @@ a {
 a:hover {
   text-decoration: underline;
 }
-
-/* Estilos para encabezados */
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
 }
-
-/* Estilos para botones */
-
 
 .button {
   background-color: #0074d9;
@@ -45,8 +36,6 @@ h1 {
   outline: none;
 }
 
-
-/* Estilos para contenedores */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -118,9 +107,6 @@ h1 {
   background-color: #0056b3;
 }
 
-/* Agrega estos estilos al mismo archivo de CSS donde tienes los estilos del componente anterior o en un nuevo archivo CSS para este formulario específico */
-
-/* Estilos para el formulario de creación de servicio */
 .create-servicio-form {
   max-width: 400px;
   margin: 0 auto;
