@@ -1,21 +1,16 @@
-// servicioController.js
-
 const Servicio = require('../models/servicioModel');
 
-// Controlador para obtener todos los servicios
 
 const getAllServicios = async (req, res) => {
   try {
     const servicios = await Servicio.getAllServicios();
     res.json(servicios);
   } catch (error) {
-    console.error("Error al obtener servicios:", error); // Agrega esta línea para registrar el error
+    console.error("Error al obtener servicios:", error); 
     res.status(500).json({ error: 'Error al obtener servicios' });
   }
 };
 
-
-// Controlador para obtener un servicio por ID
 const getServicioById = async (req, res) => {
   const { id } = req.params;
   try {
