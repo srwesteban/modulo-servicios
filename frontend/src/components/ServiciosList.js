@@ -9,14 +9,13 @@ function ServiciosList() {
   const [servicioAEditar, setServicioAEditar] = useState(null);
 
   useEffect(() => {
-    // Realiza una solicitud HTTP para obtener la lista de servicios desde el servidor
     fetch('http://localhost:3000/servicios')
       .then(response => response.json())
       .then(data => setServicios(data))
       .catch(error => console.error('Error:', error));
   }, []);
 
-  // Ordena los servicios por su id
+  // Ordena la lista por su id
   servicios.sort((a, b) => a.id - b.id);
 
   const handleDelete = async (id) => {
@@ -26,9 +25,8 @@ function ServiciosList() {
       });
   
       if (response.ok) {
-        // Elimina el servicio de la lista después de la eliminación exitosa
         setServicios(servicios.filter((servicio) => servicio.id !== id));
-        loadServicios(); // Carga la lista actualizada después de la eliminación
+        loadServicios();
       } else {
         console.error('Error al eliminar el servicio.');
       }
@@ -50,7 +48,7 @@ function ServiciosList() {
       return servicio;
     }));
     setServicioAEditar(null);
-    loadServicios(); // Carga la lista actualizada después de la edición
+    loadServicios(); 
   };
 
   const loadServicios = () => {
