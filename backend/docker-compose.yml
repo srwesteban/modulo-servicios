@@ -29,7 +29,7 @@ services:
   node-app:
     build:
       context: .
-      dockerfile: ./src/Dockerfile  # Nombre del Dockerfile de la aplicación Node.js
+      dockerfile: ./src/Dockerfile  
     ports:
       - "3000:3000"
     depends_on:
