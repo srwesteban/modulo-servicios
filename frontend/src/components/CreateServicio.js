@@ -21,11 +21,8 @@ function CreateServicio({ onServicioCreated }) {
       });
 
       if (response.ok) {
-        // Limpiar los campos después de una creación exitosa
         setNombre("");
         setDescripcion("");
-
-        // Llama a la función onServicioCreated para notificar que se ha creado un nuevo servicio
         onServicioCreated();
 
         alert("Servicio creado con éxito");
