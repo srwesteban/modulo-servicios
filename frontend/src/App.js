@@ -1,5 +1,5 @@
 import React from 'react';
-import ServiciosList from '../src/components/ServiciosList'; // Asegúrate de que la ruta sea correcta
+import ServiciosList from '../src/components/ServiciosList'; 
 import CreateServicio from '../src/components/CreateServicio';
 function App() {
   return (
