@@ -1,11 +1,11 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'root',  // Usuario de PostgreSQL
-  password: 'root',  // Contraseña de PostgreSQL
-  host: 'localhost:80',  // Dirección del servidor de PostgreSQL
-  port: 5432,  // Puerto de PostgreSQL (por defecto es 5432)
-  database: 'root',  // Nombre de la base de datos
+  user: 'root',  
+  password: 'root',  
+  host: 'localhost:80',  
+  port: 5432,  
+  database: 'root',  
 });
 
 module.exports = {
