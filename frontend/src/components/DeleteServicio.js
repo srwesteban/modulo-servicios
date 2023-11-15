@@ -7,7 +7,6 @@ function DeleteServicio({ servicioId, onDeleteServicio }) {
       });
 
       if (response.ok) {
-        // Llama a la función onDeleteServicio para notificar que se ha eliminado el servicio
         onDeleteServicio();
       } else {
         console.error('Error al eliminar el servicio.');
