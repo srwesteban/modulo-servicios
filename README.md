@@ -23,3 +23,6 @@ Pasos para iniciar la aplicación mediante DOCKER:
 4. Abrir otra terminal.
 5. Ir al directorio "frontend" con el comando: `cd frontend`.
 6. Ejecutar el comando: `docker-compose up`.
+
+Nota: si no se visualiza el resultado de la base de datos por el http://localhost:3000/servicios 
+es que no se cargo correctamente probablemente porque los datos estan en la carpeta data del backend.
